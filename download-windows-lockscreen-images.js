@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { exec } = require("child_process");
 
 // Source directory where Spotlight images are stored
 const spotlightDir = path.join(
@@ -49,4 +50,5 @@ fs.readdir(spotlightDir, (err, files) => {
   });
 
   console.log(`All Spotlight images have been copied to ${destDir}`);
+  exec(`start "" "${destDir}"`);
 });
